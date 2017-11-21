@@ -8,12 +8,13 @@ export default class Login extends React.Component {
     }
     this.setUsername = this.setUsername.bind(this);
     this.login = this.login.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
   }
   
   setUsername(event) {
     this.setState({
       username: event.target.value
-    })
+    });
   }
   
   login() {
@@ -23,6 +24,12 @@ export default class Login extends React.Component {
 //     var url = "/login";
 //     window.location.assign(url);
   }
+  
+  handleKeyPress(target) {
+    if(target.charCode==13){
+      this.login(); 
+    }
+  }
 
   
   render() {
@@ -30,7 +37,7 @@ export default class Login extends React.Component {
       <div>
         Please Login
         <br/>
-        <input type="text" onChange={this.setUsername} placeholder="Enter Username"/>
+        <input type="text" onChange={this.setUsername} placeholder="Enter Username" onKeyPress={this.handleKeyPress}/>
         <br/>
         <p>Username: {this.state.username}</p>
         <br/>

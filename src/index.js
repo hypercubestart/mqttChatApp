@@ -7,9 +7,12 @@ var session = require('express-session');
 var http = require('http');
 var https = require('https');
 
-var server = http.createServer(app);
+var mqttServer = require('./mqttServer');
 
-var port = 3013; 
+var server = http.createServer(app);
+mqttServer.attachHttpServer(server);
+
+var port = 3145; 
 
 //var server = https.createServer(options, app)
 
@@ -47,6 +50,9 @@ var io = require('socket.io')(server);
 app.use(require('./routes'));
 
 app.use(express.static(path.join(__dirname, '../public')));
+
+//serve MQQT websocket client
+app.use(express.static(path.dirname(require.resolve("mosca")) + "/public"))
 
 
 

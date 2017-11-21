@@ -1,5 +1,5 @@
-function test() {
-  alert('hi');
+function test(val) {
+  alert(val);
 }
 
 function login(usernameVal) {
@@ -14,7 +14,6 @@ function login(usernameVal) {
       console.log(results);
       $("#msg").text(results.response);
       window.location.assign('/chat');
-
     },
     error: function(results, status, err) {
       console.log(results);

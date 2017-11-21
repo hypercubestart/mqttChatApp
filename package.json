@@ -7,7 +7,8 @@
     "test": "nodemon ./src/index.js",
     "webpack": "webpack --config webpack.config.js",
     "start": "npm run-script webpack && nodemon ./src/index.js",
-    "nodemon": "nodemon ./src/index.js"
+    "nodemon": "nodemon ./src/index.js",
+    "mqtt-webpack": "webpack ./node_modules/mqtt/mqtt.js ./browserMqtt.js --output-library mqtt"
   },
   "author": "",
   "license": "ISC",
@@ -15,6 +16,7 @@
     "cookie-parser": "^1.4.3",
     "express": "^4.16.2",
     "express-session": "^1.15.6",
+    "mosca": "^2.7.0",
     "mqtt": "^2.14.0",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
